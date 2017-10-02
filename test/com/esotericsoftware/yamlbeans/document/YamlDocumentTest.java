@@ -150,6 +150,8 @@ public class YamlDocumentTest {
 	private void testEquals(String yaml) throws Exception {
 		YamlDocument document = readDocument(yaml);
 		String actual = writeDocument(document);
+		if(actual.endsWith("\n"))
+			actual = actual.substring(0, actual.length() - 1);
 		assertEquals(yaml, actual);
 	}
 	
